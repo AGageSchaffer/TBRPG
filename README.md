@@ -17,7 +17,7 @@ Start by **cloning** (not forking) this project template repository and removing
 the remote:
 
 ```console
-$ git clone git@github.com:learn-co-curriculum/project-template-react-rails-api.git your-project-name
+$ git clone git@github.com:RikkuX491/phase-4-project-template-react-rails-api.git your-project-name
 $ cd your-project-name
 $ git remote rm origin
 ```
