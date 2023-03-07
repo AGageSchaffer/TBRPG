@@ -7,7 +7,9 @@ class CreateCharacters < ActiveRecord::Migration[6.1]
       t.integer :party_id
       t.integer :role_id
       t.integer :item_id
+      t.integer :sprite_id
       t.boolean :targetable
+      t.integer :user_id
 
       t.timestamps
     end

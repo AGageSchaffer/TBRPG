@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import './App.css';
 import Login from './components/Login';
+import { Switch, NavLink } from "react-router-dom"
+import CharacterCreation from "./components/CharacterCreation";
 
-function App() {
+function App({ Route }) {
   const [user, setUser] = useState(null);
   
   useEffect(() => {
@@ -25,10 +27,15 @@ function App() {
   if (!user) return <Login setUser={setUser} />
 
   return (
+    <switch>
+      <Route path="/character-creator">
+        <CharacterCreation />
+      </Route>
     <div className="App">
       <p>{user.username}</p>
       <button onClick={handleOnClick}>Logout</button>
     </div>
+    </switch>
   );
 }
 

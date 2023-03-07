@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_06_183130) do
+ActiveRecord::Schema.define(version: 2023_03_07_170622) do
 
   create_table "battles", force: :cascade do |t|
     t.integer "party_id"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2023_03_06_183130) do
     t.integer "party_id"
     t.integer "role_id"
     t.integer "item_id"
+    t.integer "sprite_id"
     t.boolean "targetable"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -99,6 +100,12 @@ ActiveRecord::Schema.define(version: 2023_03_06_183130) do
     t.string "description"
     t.string "damage_type"
     t.integer "role_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sprites", force: :cascade do |t|
+    t.string "imgsrc"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
