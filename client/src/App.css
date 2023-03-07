@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+
+#login {
+  background-image: url("./images/LoginBackground.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+#login-form {
+  height: 1000px;
+  background-image: url("./images/LoginBanner.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  left: 30%;
+  top: 20%
+}

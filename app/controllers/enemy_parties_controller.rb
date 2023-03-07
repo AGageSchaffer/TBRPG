@@ -1,0 +1,2 @@
+class EnemyPartiesController < ApplicationController
+end
