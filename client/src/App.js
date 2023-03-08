@@ -7,6 +7,7 @@ import CharacterCreation from "./components/CharacterCreation";
 
 function App({ Route }) {
   const [user, setUser] = useState(null);
+  const [characters, setCharacters] = useState();
   
   useEffect(() => {
     // auto-login
@@ -23,8 +24,8 @@ function App({ Route }) {
 
   return (
     <Routes>
-      <Route path='/' element={!user ? <Login/> : <Hub user={user} setUser={setUser}/>}/>
-      <Route path="/character-creator" element={<CharacterCreation />}/>
+      <Route path='/' element={!user ? <Login/> : <Hub user={user} setUser={setUser} characters={characters} setCharacters={setCharacters}/>}/>
+      <Route path="/character-creator" element={<CharacterCreation user={user} characters={characters} setCharacters={setCharacters} />}/>
     </Routes>
   );
 }

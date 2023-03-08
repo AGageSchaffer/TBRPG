@@ -1,7 +1,16 @@
-function CharacterTile({character, onPartyChange}) {
+function CharacterTile({character, onPartyChange, party}) {
 
     const handleClick = () => {
-        onPartyChange(character)
+        const config = {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(character.party_id === 0 ? {party_id: 1} : {party_id: 0})
+        }
+        fetch(`/characters/${character.id}`, config)
+        .then(resp => resp.json())
+        .then(resp => onPartyChange(resp))
     }
 
     return (

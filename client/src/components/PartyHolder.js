@@ -5,7 +5,7 @@ function PartyHolder({party, onPartyRemove}) {
 
     const listedParty = party?.map(character => {
         return(
-            <CharacterTile key={character.id} character={character} onPartyChange={onPartyRemove}/>
+            <CharacterTile key={character.id} character={character} onPartyChange={onPartyRemove} party={party}/>
         )
     })
  

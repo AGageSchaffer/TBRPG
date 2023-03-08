@@ -1,11 +1,11 @@
 import React from 'react'
 import CharacterTile from './CharacterTile'
 
-function CharacterHolder({characters, onPartyAdd}) {
+function CharacterHolder({characters, onPartyAdd, party}) {
 
     const listedCharacters = characters?.map(character => {
         return(
-            <CharacterTile key={character.id} character={character} onPartyChange={onPartyAdd}/>
+            <CharacterTile key={character.id} character={character} onPartyChange={onPartyAdd} party={party}/>
         )
       })
 
