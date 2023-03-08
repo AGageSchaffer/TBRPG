@@ -12,10 +12,10 @@ function CharacterTile({character, onPartyChange, party}) {
         .then(resp => resp.json())
         .then(resp => onPartyChange(resp))
     }
-
+    const sprite = "char-sprite" + character.sprite_id
     return (
-        <div id='character-tile' onClick={() => handleClick()}>
-            <h2>{character.name} - {character.race}</h2>
+        <div id='character-tile' className={sprite} onClick={() => handleClick()}>
+            <h2>{character.name}</h2>
             <h3>Level {character.level} {character.role.name}</h3>
         </div>
     )

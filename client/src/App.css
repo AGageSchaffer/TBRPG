@@ -68,14 +68,93 @@
   justify-content: space-between;
 }
 
+#role-selector {
+  border-style: solid;
+  border: 10px;
+}
+
+#left-arrow {
+  background-image: url("./images/LeftArrow.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  align-self: center;
+  margin: 20px;
+  height: 30px;
+  width: 60px;
+}
+
+#right-arrow {
+  background-image: url("./images/RightArrow.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  display: flex;
+  align-self: center;
+  margin: 20px;
+  height: 30px;
+  width: 60px;
+}
+
+.sprite-holder{
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+#sprite1 {
+  background-image: url("./images/Sprite1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#sprite2 {
+  background-image: url("./images/Sprite2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#sprite3 {
+  background-image: url("./images/Sprite3.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#sprite4 {
+  background-image: url("./images/Sprite4.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
 .form-buttons{
-  flex-direction: row;
+  flex-direction: column;
   display: flex;
   text-align: center;
   width: 100vw;
   justify-content: space-between;
-  height: 35vh;
-  align-items: flex-end;
+  height: 20vh;
+  align-items:center;
 }
 
 .create-form {
@@ -134,4 +213,32 @@
   background-size: cover;
   height: 100vh;
   width: 100vw;
+}
+
+.char-sprite1 {
+  background-image: url("./images/Sprite1.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite2 {
+  background-image: url("./images/Sprite2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite3 {
+  background-image: url("./images/Sprite3.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite4 {
+  background-image: url("./images/Sprite4.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
 }
