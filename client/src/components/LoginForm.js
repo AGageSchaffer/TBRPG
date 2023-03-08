@@ -35,9 +35,11 @@ function LoginForm({ setUser }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="username">Username</label>
+    <div id="loginform">
+    <form onSubmit={handleSubmit} >
+      <h2 id="login-title">Login</h2>
+      <div className="login-key-1">
+        <h3 htmlFor="username">Username</h3>
         <input
           type="text"
           id="username"
@@ -46,8 +48,9 @@ function LoginForm({ setUser }) {
           onChange={(e) => setUsername(e.target.value)}
         />
       </div>
-      <>
-        <label htmlFor="password">Password</label>
+    
+      <div className="login-key-2">
+        <h3 htmlFor="password">Password</h3>
         <input
           type="password"
           id="password"
@@ -55,13 +58,14 @@ function LoginForm({ setUser }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-      </>
-      <div>
+      </div>
+      <div className="login-key-3">
         <button variant="fill" color="primary" type="submit" >
           {isLoading ? "Loading..." : "Login"}
         </button>
       </div>
     </form>
+    </div>
   );
 }
 

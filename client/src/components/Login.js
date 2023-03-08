@@ -11,21 +11,20 @@ function Login({ setUser }) {
     }
 
     return (
-        <div id="login">
-            <div id="login-form"></div>
-          {showLogin ? (
-            <div>
+      <div id="login" >
+        <div id="banner" className="banner">
+          <div className="login">
+            {showLogin ? (
+            <div id="login-form" className="login-form">
               <LoginForm setUser={setUser} />
               <> </>
-              <p>
-                Don't have an account? &nbsp;
                 <button color="secondary" onClick={() => setShowLogin(false)}>
                   Sign Up
                 </button>
-              </p>
+              
             </ div>
           ) : (
-            <div>
+            <div id="signup-form">
               <SignUpForm  setUser={setUser} />
               <></>
               <p>
@@ -34,10 +33,11 @@ function Login({ setUser }) {
                   Log In
                 </button>
               </p>
-            </ div>
+          </div>
           )}
-          <button onClick={deleteUsers}>Delete Users</button>
         </div>
+      </div>
+    </div>
     );
 }
     

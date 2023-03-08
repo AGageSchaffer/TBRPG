@@ -38,7 +38,7 @@ function SignUpForm({ setUser }) {
   return (
     <form onSubmit={handleSubmit}>
       <>
-        <label htmlFor="username">Username</label>
+        <h3 htmlFor="username">Username</h3>
         <input
           type="text"
           name='username'
@@ -49,7 +49,7 @@ function SignUpForm({ setUser }) {
         />
       </>
       <>
-        <label htmlFor="password">Password</label>
+        <h3 htmlFor="password">Password</h3>
         <input
           type="password"
           name='password'
@@ -60,7 +60,7 @@ function SignUpForm({ setUser }) {
         />
       </>
       <>
-        <label htmlFor="password">Password Confirmation</label>
+        <h3 htmlFor="password">Password Confirmation</h3>
         <input
           type="password"
           name='password_confirmation'
@@ -70,9 +70,9 @@ function SignUpForm({ setUser }) {
           autoComplete="current-password"
         />
       </>
-      <>
+      <p>
         <button type="submit">{isLoading ? "Loading..." : "Sign Up"}</button>
-      </>
+      </p>
       <>
         {errors.map((err) => (
           <error key={err}>{err}</error>

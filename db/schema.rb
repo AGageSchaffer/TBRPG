@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2023_03_07_170622) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
+    t.integer "level"
     t.integer "experience"
     t.string "race"
     t.integer "party_id"
@@ -28,6 +29,7 @@ ActiveRecord::Schema.define(version: 2023_03_07_170622) do
     t.integer "item_id"
     t.integer "sprite_id"
     t.boolean "targetable"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

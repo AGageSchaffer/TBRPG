@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import './App.css';
 import Login from './components/Login';
-import { Switch, NavLink } from "react-router-dom"
+import Hub from './components/Hub'
+import { NavLink, Routes } from "react-router-dom"
 import CharacterCreation from "./components/CharacterCreation";
 
 function App({ Route }) {
@@ -16,26 +17,15 @@ function App({ Route }) {
     });
   }, []);
 
-  const logout = () => {
-    fetch('/logout', {method: "DELETE"})
-  }
-  function handleOnClick () {
-    logout()
-    setUser(null)
-  }
+  
 
   if (!user) return <Login setUser={setUser} />
 
   return (
-    <switch>
-      <Route path="/character-creator">
-        <CharacterCreation />
-      </Route>
-    <div className="App">
-      <p>{user.username}</p>
-      <button onClick={handleOnClick}>Logout</button>
-    </div>
-    </switch>
+    <Routes>
+      <Route path='/' element={!user ? <Login/> : <Hub user={user} setUser={setUser}/>}/>
+      <Route path="/character-creator" element={<CharacterCreation />}/>
+    </Routes>
   );
 }
 
