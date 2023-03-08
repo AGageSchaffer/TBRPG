@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignUpForm";
+import { UserContext } from "../context/user";
 
 
-function Login({ setUser }) {
+function Login({ /*setUser*/ }) {
     const [showLogin, setShowLogin] = useState(true)
+    const [_, setUser] = useContext(UserContext)
     
     const deleteUsers = () => {
       fetch('/delete-users', {method: "DELETE"})

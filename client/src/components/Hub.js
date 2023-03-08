@@ -1,12 +1,17 @@
 import CharacterHolder from './CharacterHolder';
 import PartyHolder from './PartyHolder';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { UserContext } from '../context/user';
+import { CharactersContext } from '../context/characters';
 
-function Hub ({user, setUser, characters, setCharacters}) {
+function Hub ({/*user, setUser, characters, setCharacters*/}) {
 
     // const [characters, setCharacters] = useState();
     const [party, setParty] = useState([]);
+
+    const [characters, setCharacters] = useContext(CharactersContext)
+    const [user, setUser] = useContext(UserContext)
 
     useEffect(() => {
         fetch('/characters')
@@ -45,7 +50,12 @@ function Hub ({user, setUser, characters, setCharacters}) {
                     <h1>Characters</h1>
                     <CharacterHolder characters={characters} onPartyAdd={onPartyAdd} party={party}/>
                 </div>
-                <h1>Bonfire</h1>
+                <div id='center-hub'>
+                    <h1>Bonfire</h1>
+                    <Link to='/battle'>
+                        <button>Battle</button>
+                    </Link>
+                </div>
                 <div id='party-list'>
                     <h1>Party {party.length}/4</h1>
                     <PartyHolder party={party} onPartyRemove={onPartyRemove}/>

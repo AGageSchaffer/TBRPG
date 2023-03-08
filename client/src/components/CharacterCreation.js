@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { Link, useNavigate } from 'react-router-dom'
+import { UserContext } from "../context/user"
+import { CharactersContext } from "../context/characters"
 
-
-function CharacterCreation({ user, characters, setCharacters }) {
+function CharacterCreation({ /*user, characters, setCharacters*/ }) {
+    const [user, _] = useContext(UserContext)
+    const [characters, setCharacters] = useContext(CharactersContext)
 
     const initialFormData = {
         name: "",
@@ -16,6 +19,7 @@ function CharacterCreation({ user, characters, setCharacters }) {
     }
     const [formData, setFormData] = useState(initialFormData)
     const [roles, setRoles] = useState();
+    const [role, setRole] = useState()
     const sprite = "sprite" + formData.sprite_id
 
     useEffect(() => {
@@ -30,6 +34,15 @@ function CharacterCreation({ user, characters, setCharacters }) {
         return (
             <option key={role.id} value={role.id}>{role.name}</option>
         );
+    })
+
+    // const filteredRole = roles?.filter(role => role_id === formData.role_id)
+
+    const listedStats = roles?.map(role => {
+        role.stats.map(stat => {
+            return console.log(stat)
+        })
+        ;
     })
 
     function handleSubmit(e) {
@@ -56,25 +69,25 @@ function CharacterCreation({ user, characters, setCharacters }) {
         else if (e.target.name === "left" && formData.sprite_id > 1)
         setFormData({...formData, sprite_id: formData.sprite_id - 1})
     }
-
+    
     return (
         <div id="charCreateBG">
             <div id="charCreate" className="charCreate">
-                <h1 className="header">Character Sheet</h1>
+                <div id="header-bg"></div>
                 <div id="create-form">
                     <form onSubmit={(e) => handleSubmit(e)} > 
                         <div className="create-form">
-                            <h2>Name</h2>
+                            <div className="name-bg"></div>
                             <input type="text" id="charName" name="name" value={formData.name} onChange={(e) => setFormData({...formData, [e.target.name]: e.target.value})}></input>
-                            <h2>Character Model</h2>
+                            <div className="model-bg"></div>
                             <div className="sprite-holder"><a id="left-arrow" name="left" onClick={(e) => handleClick(e)}> </a><p id={sprite}></p><a id="right-arrow" name="right" onClick={(e) => handleClick(e)}> </a></div>
-                            <h3>Role</h3>
+                            <div className="create-role"></div>
                             <select name="role_id" onChange={(e) => setFormData({...formData, [e.target.name]: e.target.value})}>
                                 <option>Select</option>
                                 {listedRoles}
                             </select>
-                            <h3>Attributes</h3>
-                            
+                            <div className="create-attributes"></div>
+                            {listedStats}
                             <button type="submit">Create</button>
                         </div>
                     </form>
