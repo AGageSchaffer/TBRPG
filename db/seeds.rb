@@ -6,7 +6,7 @@
 
 # Role.create(
 #     name: 'Wizard',
-#     special: 'Spells'
+#     special: 'Fireball'
 # )
 
 # Role.create(
@@ -69,7 +69,7 @@
 #     experience: 0,
 #     race: 'High Elf',
 #     role_id: Role.find_by(name: 'Wizard').id,
-#     targetable: true
+#     sprite_id: 2
 # )
 
 # Character.create(
@@ -79,7 +79,7 @@
 #     experience: 0,
 #     race: 'Dragonborn',
 #     role_id: Role.find_by(name: 'Warrior').id,
-#     targetable: true
+#     sprite_id: 1
 # )
 
 # Character.create(
@@ -89,7 +89,7 @@
 #     experience: 0,
 #     race: 'Human',
 #     role_id: Role.find_by(name: 'Cleric').id,
-#     targetable: true
+#     sprite_id: 3
 # )
 
 # Character.create(
@@ -99,7 +99,57 @@
 #     experience: 0,
 #     race: 'Tiefling',
 #     role_id: Role.find_by(name: 'Ranger').id,
-#     targetable: true
+#     sprite_id: 4
+# )
+
+# puts 'Generating Enemy Parties...'
+
+# EnemyParty.create(
+#     name: 'Orc Band 1'
+# )
+
+# EnemyParty.create(
+#     name: 'Orc Band 2'
+# )
+
+# EnemyParty.create(
+#     name: 'Orc Band 3'
+# )
+# puts 'Clearing Old Enemy Data...'
+# Enemy.destroy_all
+
+# puts 'Generating Enemies...'
+
+# Enemy.create(
+#     name: 'Orc 1',
+#     race: 'Orc',
+#     enemy_party_id: 1,
+#     sprite_id: 1,
+#     role_id: Role.find_by(name: 'Warrior').id
+# )
+
+# Enemy.create(
+#     name: 'Orc 2',
+#     race: 'Orc',
+#     enemy_party_id: 1,
+#     sprite_id: 1,
+#     role_id: Role.find_by(name: 'Warrior').id
+# )
+
+# Enemy.create(
+#     name: 'Orc 3',
+#     race: 'Orc',
+#     enemy_party_id: 1,
+#     sprite_id: 1,
+#     role_id: Role.find_by(name: 'Warrior').id
+# )
+
+# Enemy.create(
+#     name: 'Orc Shaman',
+#     race: 'Orc',
+#     enemy_party_id: 1,
+#     sprite_id: 2,
+#     role_id: Role.find_by(name: 'Cleric').id
 # )
 
 # puts "Done Seeding..."

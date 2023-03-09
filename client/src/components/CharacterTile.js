@@ -14,7 +14,7 @@ function CharacterTile({character, onPartyChange, party}) {
     }
     const sprite = "char-sprite" + character.sprite_id
     return (
-        <div id='character-tile' className={sprite} onClick={() => handleClick()}>
+        <div className='character-tile' id={sprite} onClick={() => handleClick()}>
             <h2>{character.name}</h2>
             <h3>Level {character.level} {character.role.name}</h3>
         </div>

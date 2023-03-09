@@ -11,6 +11,8 @@
     "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
   },
   "dependencies": {
+    "@coreui/react-chartjs": "^2.1.2",
+    "chart.js": "^4.2.1",
     "react-bars": "^0.1.2"
   }
 }

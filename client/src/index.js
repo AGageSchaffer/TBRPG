@@ -5,15 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route } from "react-router-dom"
 import { UserProvider } from './context/user'
-import { CharactersProvider } from './context/characters'
+// import { CharactersProvider } from './context/characters'
+import { CampaignProvider } from './context/campaign'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <UserProvider>
-      <CharactersProvider>
-        <App Route={Route}/>
-      </CharactersProvider>
+      <CampaignProvider>
+          <App Route={Route}/>
+        {/* <CharactersProvider>
+        </CharactersProvider> */}
+      </CampaignProvider>
     </UserProvider>
   </BrowserRouter>
 );

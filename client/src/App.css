@@ -188,6 +188,7 @@
 
 .create-form {
   text-align: center;
+  min-height: 727px;
 }
 
 #banner {
@@ -209,15 +210,17 @@
 }
 
 
-#character-tile {
+.character-tile {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   border: solid;
   border-color: black;
   background-color: rgba(252, 231, 175, 0.541);
-  min-width: max-content;
+  min-width: 250px;
   width: 250px;
   height: 120px;
+  margin: 0;
 }
 
 #hub-organizer {
@@ -240,6 +243,12 @@
   align-items: center;
 }
 
+#field-hider{
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
+
 #hub-bg {
   background-image: url("./images/HubBG.jpg");
   background-repeat: no-repeat;
@@ -248,30 +257,739 @@
   width: 100vw;
 }
 
-.char-sprite1 {
-  background-image: url("./images/Sprite1.png");
+#char-sprite1 {
+  background-image: url("./images/charactersprites/Sprite1.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite2 {
+  background-image: url("./images/charactersprites/Sprite2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite3 {
+  background-image: url("./images/charactersprites/Sprite3.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite4 {
+  background-image: url("./images/charactersprites/Sprite4.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite5 {
+  background-image: url("./images/charactersprites/Sprite5.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite6 {
+  background-image: url("./images/charactersprites/Sprite6.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite7 {
+  background-image: url("./images/charactersprites/Sprite7.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite8 {
+  background-image: url("./images/charactersprites/Sprite8.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite9 {
+  background-image: url("./images/charactersprites/Sprite9.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite10 {
+  background-image: url("./images/charactersprites/Sprite10.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite11 {
+  background-image: url("./images/charactersprites/Sprite11.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite12 {
+  background-image: url("./images/charactersprites/Sprite12.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite13 {
+  background-image: url("./images/charactersprites/Sprite13.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite14 {
+  background-image: url("./images/charactersprites/Sprite14.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite15 {
+  background-image: url("./images/charactersprites/Sprite15.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite16 {
+  background-image: url("./images/charactersprites/Sprite16.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite17 {
+  background-image: url("./images/charactersprites/Sprite17.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite18 {
+  background-image: url("./images/charactersprites/Sprite18.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite19 {
+  background-image: url("./images/charactersprites/Sprite19.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite20 {
+  background-image: url("./images/charactersprites/Sprite20.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite21 {
+  background-image: url("./images/charactersprites/Sprite21.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite22 {
+  background-image: url("./images/charactersprites/Sprite22.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite23 {
+  background-image: url("./images/charactersprites/Sprite23.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite24 {
+  background-image: url("./images/charactersprites/Sprite24.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite25 {
+  background-image: url("./images/charactersprites/Sprite25.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite26 {
+  background-image: url("./images/charactersprites/Sprite26.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite27 {
+  background-image: url("./images/charactersprites/Sprite27.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite28 {
+  background-image: url("./images/charactersprites/Sprite28.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite29 {
+  background-image: url("./images/charactersprites/Sprite29.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite30 {
+  background-image: url("./images/charactersprites/Sprite30.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite31 {
+  background-image: url("./images/charactersprites/Sprite31.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite32 {
+  background-image: url("./images/charactersprites/Sprite32.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite33 {
+  background-image: url("./images/charactersprites/Sprite33.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite34 {
+  background-image: url("./images/charactersprites/Sprite34.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite35 {
+  background-image: url("./images/charactersprites/Sprite35.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite36 {
+  background-image: url("./images/charactersprites/Sprite36.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite37 {
+  background-image: url("./images/charactersprites/Sprite37.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite38 {
+  background-image: url("./images/charactersprites/Sprite38.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite39 {
+  background-image: url("./images/charactersprites/Sprite39.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+#char-sprite40 {
+  background-image: url("./images/charactersprites/Sprite40.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+  display: flex;
+  left: 300px;
+  height: 110px;
+  width: 100px;
+}
+
+.char-sprite1 {
+  background-image: url("./images/charactersprites/Sprite1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .char-sprite2 {
-  background-image: url("./images/Sprite2.png");
+  background-image: url("./images/charactersprites/Sprite2.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 }
 
 .char-sprite3 {
-  background-image: url("./images/Sprite3.png");
+  background-image: url("./images/charactersprites/Sprite3.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
 }
 
 .char-sprite4 {
-  background-image: url("./images/Sprite4.png");
+  background-image: url("./images/charactersprites/Sprite4.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right;
+}
+
+.char-sprite5 {
+  background-image: url("./images/charactersprites/Sprite5.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite6 {
+  background-image: url("./images/charactersprites/Sprite6.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite7 {
+  background-image: url("./images/charactersprites/Sprite7.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite8 {
+  background-image: url("./images/charactersprites/Sprite8.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite9 {
+  background-image: url("./images/charactersprites/Sprite9.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite10 {
+  background-image: url("./images/charactersprites/Sprite10.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite11 {
+  background-image: url("./images/charactersprites/Sprite11.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite12 {
+  background-image: url("./images/charactersprites/Sprite12.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite13 {
+  background-image: url("./images/charactersprites/Sprite13.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite14 {
+  background-image: url("./images/charactersprites/Sprite14.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite15 {
+  background-image: url("./images/charactersprites/Sprite15.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite16 {
+  background-image: url("./images/charactersprites/Sprite16.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite17 {
+  background-image: url("./images/charactersprites/Sprite17.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite18 {
+  background-image: url("./images/charactersprites/Sprite18.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite19 {
+  background-image: url("./images/charactersprites/Sprite19.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite20 {
+  background-image: url("./images/charactersprites/Sprite20.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite21 {
+  background-image: url("./images/charactersprites/Sprite21.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite22 {
+  background-image: url("./images/charactersprites/Sprite22.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite23 {
+  background-image: url("./images/charactersprites/Sprite23.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite24 {
+  background-image: url("./images/charactersprites/Sprite24.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite25 {
+  background-image: url("./images/charactersprites/Sprite25.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite26 {
+  background-image: url("./images/charactersprites/Sprite26.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite27 {
+  background-image: url("./images/charactersprites/Sprite27.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite28 {
+  background-image: url("./images/charactersprites/Sprite28.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite29 {
+  background-image: url("./images/charactersprites/Sprite29.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite30 {
+  background-image: url("./images/charactersprites/Sprite30.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite31 {
+  background-image: url("./images/charactersprites/Sprite31.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite32 {
+  background-image: url("./images/charactersprites/Sprite32.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite33 {
+  background-image: url("./images/charactersprites/Sprite33.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite34 {
+  background-image: url("./images/charactersprites/Sprite34.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite35 {
+  background-image: url("./images/charactersprites/Sprite35.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite36 {
+  background-image: url("./images/charactersprites/Sprite36.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite37 {
+  background-image: url("./images/charactersprites/Sprite37.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite38 {
+  background-image: url("./images/charactersprites/Sprite38.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite39 {
+  background-image: url("./images/charactersprites/Sprite39.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.char-sprite40 {
+  background-image: url("./images/charactersprites/Sprite40.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+#battlefield {
+  background-image: url("./images/BattlegroundBG.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#combatants {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }

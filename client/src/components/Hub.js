@@ -4,40 +4,53 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react'
 import { UserContext } from '../context/user';
 import { CharactersContext } from '../context/characters';
+// import { CampaignContext } from '../context/campaign';
 
 function Hub ({/*user, setUser, characters, setCharacters*/}) {
 
     // const [characters, setCharacters] = useState();
     const [party, setParty] = useState([]);
 
-    const [characters, setCharacters] = useContext(CharactersContext)
+    const [_, setCharacters] = useContext(CharactersContext)
     const [user, setUser] = useContext(UserContext)
+    // const [campaign, setCampaign] = useContext(CampaignContext)
+
+    const [benchedChars, setBenchedChars] = useState([]);
 
     useEffect(() => {
         fetch('/characters')
         .then(resp => resp.json())
         .then((resp) => {
-            setCharacters(resp.filter(character => character.party_id !== 1))
+            setCharacters(resp)
+            setBenchedChars(resp.filter(character => character.party_id !== 1))
             setParty(resp.filter(character => character.party_id === 1))
         })
+        // fetch('/campaigns')
+        // .then(resp => resp.json())
+        // .then(resp => setCampaign(resp.battle))
     },[])
     
     const logout = () => {
         fetch('/logout', {method: "DELETE"})
       }
-      function handleOnClick () {
+
+    function handleOnClick () {
         logout()
         setUser(null)
-      }
+    }
+
+    function handleBattleClick() {
+        setCharacters(party)
+    }
 
     const onPartyAdd = (char) => {
-        setCharacters(characters.filter(character => character.id !== char.id))
+        setBenchedChars(benchedChars.filter(character => character.id !== char.id))
         setParty([...party, char])
     }
 
     const onPartyRemove = (char) => {
         setParty(party.filter(character => character.id !== char.id))
-        setCharacters([...characters, char])
+        setBenchedChars([...benchedChars, char])
     }
 
     return (
@@ -48,12 +61,12 @@ function Hub ({/*user, setUser, characters, setCharacters*/}) {
             <div id='hub-organizer'>
                 <div id='character-list'>
                     <h1>Characters</h1>
-                    <CharacterHolder characters={characters} onPartyAdd={onPartyAdd} party={party}/>
+                    <CharacterHolder characters={benchedChars} onPartyAdd={onPartyAdd} party={party}/>
                 </div>
                 <div id='center-hub'>
                     <h1>Bonfire</h1>
                     <Link to='/battle'>
-                        <button>Battle</button>
+                        <button onClick={handleBattleClick}>Battle</button>
                     </Link>
                 </div>
                 <div id='party-list'>

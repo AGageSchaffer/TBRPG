@@ -1,12 +1,11 @@
 import React from 'react'
 import CharacterTile from './CharacterTile'
 import { useContext } from 'react'
-import { UserContext } from '../context/user'
 import { CharactersContext } from '../context/characters'
 
-function CharacterHolder({/*characters, */onPartyAdd, party}) {
+function CharacterHolder({characters, onPartyAdd, party}) {
 
-    const [characters, _] = useContext(CharactersContext)
+    // const [characters, _] = useContext(CharactersContext)
 
     const listedCharacters = characters?.map(character => {
         return(

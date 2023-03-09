@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_07_170622) do
+ActiveRecord::Schema.define(version: 2023_03_08_230722) do
 
   create_table "battles", force: :cascade do |t|
     t.integer "party_id"
     t.integer "enemy_party_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "campaigns", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "battle", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -24,11 +31,11 @@ ActiveRecord::Schema.define(version: 2023_03_07_170622) do
     t.integer "level"
     t.integer "experience"
     t.string "race"
-    t.integer "party_id"
+    t.integer "party_id", default: 0
     t.integer "role_id"
     t.integer "item_id"
     t.integer "sprite_id"
-    t.boolean "targetable"
+    t.boolean "targetable", default: true
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -39,7 +46,8 @@ ActiveRecord::Schema.define(version: 2023_03_07_170622) do
     t.string "race"
     t.integer "enemy_party_id"
     t.integer "role_id"
-    t.boolean "targetable"
+    t.integer "sprite_id"
+    t.boolean "targetable", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
