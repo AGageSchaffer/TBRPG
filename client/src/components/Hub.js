@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react'
 import { UserContext } from '../context/user';
 import { CharactersContext } from '../context/characters';
-// import { CampaignContext } from '../context/campaign';
+import { CampaignContext } from '../context/campaign';
 
 function Hub ({/*user, setUser, characters, setCharacters*/}) {
 
@@ -13,7 +13,7 @@ function Hub ({/*user, setUser, characters, setCharacters*/}) {
 
     const [_, setCharacters] = useContext(CharactersContext)
     const [user, setUser] = useContext(UserContext)
-    // const [campaign, setCampaign] = useContext(CampaignContext)
+    const [campaign, setCampaign] = useContext(CampaignContext)
 
     const [benchedChars, setBenchedChars] = useState([]);
 
@@ -41,6 +41,10 @@ function Hub ({/*user, setUser, characters, setCharacters*/}) {
 
     function handleBattleClick() {
         setCharacters(party)
+    }
+
+    function removeCharacter(char) {
+        
     }
 
     const onPartyAdd = (char) => {
