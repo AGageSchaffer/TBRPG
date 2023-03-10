@@ -4,5 +4,6 @@ class Enemy < ApplicationRecord
     
     belongs_to :enemy_party
 
-    has_many :turns
+    has_many :turns, as: :target
+    has_many :turns, as: :attacker
 end

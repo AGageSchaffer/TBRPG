@@ -14,9 +14,18 @@ class BattlesController < ApplicationController
     end
     end
 
+    def update 
+        @current_user.characters.all.each do |c| c.update(level: 2) end
+    end
+
     def destroy
         battle = Battle.find(params[:id])
         battle.destroy
+        Turn.destroy_all
+        Character.all.each do |c| c.stat.update(health_points: c.stat.max_health) end
+        Character.all.each do |c| c.update(is_dead: false) end
+        Enemy.all.each do |e| e.stat.update(health_points: e.stat.max_health) end
+        Enemy.all.each do |e| e.update(is_dead: false) end
         head :no_content
     end
 

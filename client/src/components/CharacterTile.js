@@ -2,18 +2,20 @@ import { useContext } from "react"
 import { DeleteContext } from "../context/delete"
 import { CharactersContext } from "../context/characters";
 import { UserContext } from "../context/user";
-// import { BenchedCharsContext } from "../context/benchedChars";
+import { PartyContext } from "../context/party"
 
-function CharacterTile({character, onPartyChange, party}) {
+function CharacterTile({character, onPartyChange}) {
 
     const [deleteChar, _] = useContext(DeleteContext);
     const [user, setUser] = useContext(UserContext)
     const [characters, setCharacters] = useContext(CharactersContext)
-    // const [benchedChars, setBenchedChars] = useContext(BenchedCharsContext)
+    const [party, setParty] = useContext(PartyContext)
 
     function removeCharacter() {
+        const removedCharArr = characters.filter(char => char.id !== character.id)
+        setCharacters(removedCharArr)
+        setParty(removedCharArr.filter(char => char.party_id === user.id))
         fetch(`/characters/${character.id}`, {method: "DELETE"})
-        setCharacters(characters.filter(char => char.id !== character.id))
     }
 
 
@@ -41,9 +43,9 @@ function CharacterTile({character, onPartyChange, party}) {
         <div>
             <div className='character-tile' id={sprite} onClick={() => handleClick()}>
                 <h2>{character.name}</h2>
-                <h3>Level {character.level} {/*character.role.name*/}</h3>
+                <h3>Level {character.level} {character.role.name}</h3>
             </div>
-            {deleteChar? <button onClick={() => removeCharacter()}>X</button> : null}
+            {deleteChar? <button onClick={() => removeCharacter()} className='button'>Delete</button> : null}
         </div>
     )
 }

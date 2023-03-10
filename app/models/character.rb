@@ -4,6 +4,7 @@ class Character < ApplicationRecord
     has_one :sprite
     has_one :party
 
-    has_many :turns
+    has_many :turns, as: :attacker
+    has_many :turns, as: :target
     belongs_to :user
 end

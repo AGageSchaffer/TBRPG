@@ -140,11 +140,11 @@ Enemy.create(
 )
 
 Enemy.create(
-    name: 'Orc Shaman',
+    name: 'Orc Ranger',
     race: 'Orc',
     enemy_party_id: 1,
     sprite_id: 2,
-    role_id: Role.find_by(name: 'Cleric').id
+    role_id: Role.find_by(name: 'Ranger').id
 )
 
 puts 'Generating Stats...'
@@ -172,7 +172,7 @@ Stat.create(
     max_mana: 50,
     mana_regen: 8,
     physical: 0,
-    magic: 10,
+    magic: 15,
     faith: 0
 )
 
@@ -199,7 +199,7 @@ Stat.create(
     mana: 0,
     max_mana: 0,
     mana_regen: 0,
-    physical: 10,
+    physical: 15,
     magic: 0,
     faith: 0
 )
@@ -212,7 +212,7 @@ Stat.create(
     mana: 0,
     max_mana: 0,
     mana_regen: 0,
-    physical: 8,
+    physical: 10,
     magic: 0,
     faith: 0
 )
@@ -245,15 +245,15 @@ Stat.create(
 
 Stat.create(
     owner: Enemy.find(4),
-    role_id: Role.find_by(name: 'Cleric').id,
-    health_points: 30,
-    max_health: 30,
-    mana: 50,
-    max_mana: 50,
-    mana_regen: 8,
-    physical: 0,
+    role_id: Role.find_by(name: 'Ranger').id,
+    health_points: 50,
+    max_health: 50,
+    mana: 0,
+    max_mana: 0,
+    mana_regen: 0,
+    physical: 10,
     magic: 0,
-    faith: 10
+    faith: 0
 )
 
 puts "Done Seeding..."

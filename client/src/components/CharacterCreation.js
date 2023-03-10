@@ -99,7 +99,7 @@ function CharacterCreation({ /*user, characters, setCharacters benchedChars, set
             },
             body: JSON.stringify(formData),
           }).then(resp => resp.json())
-        //   .then(c => setCharacters([...characters, c]))
+        .then(c => setCharacters([...characters, c]))
         .then(resp => console.log(resp))
         //   .then(resp => resp.json())
         //   .then(resp => setBenchedChars([...benchedChars, resp]))
@@ -159,14 +159,14 @@ function CharacterCreation({ /*user, characters, setCharacters benchedChars, set
                             <div className="create-role"></div>
                             <div className="sprite-holder"><a id="left-arrow" name="left"  onClick={(e) => handleClickRole(e)}> </a>{role}<a id="right-arrow" name="right" onClick={(e) => handleClickRole(e)}> </a></div>
                             <div className="create-attributes"></div>
-                            {roleStats}
-                            <button type="submit">Create</button>
+                            <div className="attr-bg"><div className="attr">{roleStats}</div></div>
+                            <button type="submit" id="button" className="button">Create</button>
                         </div>
                     </form>
                 </div>
             </div>
                 <div className="form-buttons" >
-                    <Link to='/'><button>Back</button></Link>
+                    <Link to='/'><button className="button">Back</button></Link>
                 </div>
         </div>
     )
