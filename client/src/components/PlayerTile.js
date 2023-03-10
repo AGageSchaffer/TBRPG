@@ -168,15 +168,9 @@ function PlayerTile({character, setAttacker, attacker}) {
             break;
     }
 //#endregion
-    let idTag;
-    if(attacker){
-        idTag = attacker.id
-    }
-    else {
-        idTag = 0
-    }
+    
     return(
-        <div id={idTag === character.id ? 'selected-tile' : ''} onClick={() => setAttacker(character)}>
+        <div onClick={() => setAttacker(character)}>
             <h3>{character.name} - HP: {character.stat.health_points}/{character.stat.max_health}</h3>
             <img src={sprite}/>
         </div>
