@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2023_03_08_230722) do
     t.integer "sprite_id"
     t.boolean "targetable", default: true
     t.integer "initiative", default: 0
+    t.boolean "is_dead", default: false
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -51,6 +52,7 @@ ActiveRecord::Schema.define(version: 2023_03_08_230722) do
     t.integer "sprite_id"
     t.boolean "targetable", default: true
     t.integer "initiative", default: 0
+    t.boolean "is_dead", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -152,10 +154,15 @@ ActiveRecord::Schema.define(version: 2023_03_08_230722) do
 
   create_table "turns", force: :cascade do |t|
     t.integer "battle_id"
-    t.integer "character_id"
-    t.integer "enemy_id"
+    t.boolean "player_attacking"
+    t.string "attacker_type"
+    t.integer "attacker_id"
+    t.string "target_type"
+    t.integer "target_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["attacker_type", "attacker_id"], name: "index_turns_on_attacker"
+    t.index ["target_type", "target_id"], name: "index_turns_on_target"
   end
 
   create_table "users", force: :cascade do |t|

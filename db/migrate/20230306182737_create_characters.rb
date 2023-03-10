@@ -11,6 +11,7 @@ class CreateCharacters < ActiveRecord::Migration[6.1]
       t.integer :sprite_id
       t.boolean :targetable, default: true
       t.integer :initiative, default: 0
+      t.boolean :is_dead, default: false
       t.integer :user_id
 
       t.timestamps

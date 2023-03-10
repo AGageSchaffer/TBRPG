@@ -10,6 +10,7 @@ import { EnemiesProvider} from './context/enemies'
 import { CampaignProvider } from "./context/campaign";
 import { DeleteProvider } from "./context/delete";
 import { PartyProvider } from './context/party';
+import { VictoryProvider } from './context/victory';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,7 +21,9 @@ root.render(
           <PartyProvider>
             <EnemiesProvider>
               < DeleteProvider>
+                <VictoryProvider>
                 <App Route={Route}/>
+                </VictoryProvider>
               </DeleteProvider>
             </EnemiesProvider>
             </PartyProvider>

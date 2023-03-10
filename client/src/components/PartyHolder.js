@@ -15,7 +15,7 @@ function PartyHolder({/*party, onPartyRemove*/characters, setCharacters}) {
 
     const listedParty = party?.map(character => {
         return(
-            <CharacterTile key={character.id} character={character} onPartyChange={onPartyRemove} party={party}/>
+            <CharacterTile key={character.id} character={character} onPartyChange={onPartyRemove} party={party} setParty={setParty} />
         )
     })
  

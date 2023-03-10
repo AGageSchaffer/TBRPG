@@ -1,7 +1,14 @@
-function ActionMenu({attacker}) {
+function ActionMenu({attacker, target, onAttackSubmit, handleBattleDelete}) {
+
+    const handleClick = () => {
+        onAttackSubmit()
+    }
+
     return (
         <div id='action-menu'>
-            <button id='attack' onClick={() => console.log(attacker)}>Attack</button>
+            {target ? <h3>{target.name}</h3> : null}
+            <button id='attack' onClick={handleClick} className='battle-button'>Attack</button>
+            {attacker ? <h3>{attacker.name}</h3> : null}
         </div>
     )
 }

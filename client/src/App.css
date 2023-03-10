@@ -7,6 +7,22 @@
   }
 }
 
+.username-bg {
+  display: flex;
+  justify-content: center;
+  background-image: url("./images/banner6.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  min-height: 110px;
+  margin: 0;
+}
+.username {
+  position: absolute;
+  top: 24px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
 #header-bg {
   background-image: url("./images/banner1.png");
   background-repeat: no-repeat;
@@ -132,6 +148,20 @@
   justify-content: center;
 }
 
+.attr-bg {
+  display: flex;
+  justify-content: center;
+  background-image: url("./images/banner7.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  min-height: 180px;
+}
+
+.attr {
+  display: flex;
+}
+
 #sprite1 {
   background-image: url("./images/Sprite1.png");
   background-repeat: no-repeat;
@@ -227,20 +257,47 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  width: 100vw;
 }
 
 
-#party-holder {
+/* #party-holder {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  width: max-content;
+  width: 10%;
   height: 500px;
+} */
+#party-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 256px;
+  height: 500px;
+}
+
+#character-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 256px;
+  height: 500px;
+}
+
+.hub-buttons {
+  display: flex;
+  justify-content: center;
 }
 
 #center-hub {
   justify-content: center;
   align-items: center;
+  justify-self: center;
+  width: 200px;
+  text-align: center;
+
 }
 
 #field-hider{
@@ -985,15 +1042,32 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 #combatants {
   display: flex;
-  position: relative;
-  top: 15vh;
+  /* position: absolute;
+  left: 50%; */
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+#back-to-hub {
+  position: absolute;
+  left: 45vw;
+  top: 90%;
+}
+
+#victory-menu {
+  position: absolute;
+  text-align: center;
+  background-color: rgba(58, 57, 57, 0.534);
+  border-radius: 15px 15px 15px 15px;
+  font-size: 50px;
+  color: rgb(0, 238, 255);
+  left: 42%;
+  top: 20%
 }
 
 #action-menu {
@@ -1004,9 +1078,17 @@
   right: 2vw;
   border-color: black;
   background-color: rgba(42, 63, 131, 0.836);
-  height: 250px;
+  height: 200px;
   width: 300px;
   justify-content: center;
+  align-content: center;
+}
+
+#center-field {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: max-content;
 }
 
 #attack {
@@ -1024,4 +1106,46 @@
 .selected-character {
   border: solid;
   border-color: rgb(38, 38, 156);
+}
+
+.char-bf {
+  min-height: 100px;
+}
+
+.enemy-bf {
+  min-height: 100px;
+}
+
+#player-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#enemy-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  background-image: url("./images/banner8.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  min-height: 40px;
+  min-width: 150px;
+}
+
+.battle-button {
+  background-image: url("./images/sword&shield.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  border: none;
+  min-height: 150px;
+  min-width: 150px;
 }

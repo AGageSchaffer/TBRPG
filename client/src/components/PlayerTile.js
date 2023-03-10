@@ -169,10 +169,14 @@ function PlayerTile({character, setAttacker, attacker}) {
     }
 //#endregion
     
+    const handleClick = () => {
+        setAttacker(character)
+    }
+
     return(
-        <div onClick={() => setAttacker(character)}>
-            <h3>{character.name} - HP: {character.stat.health_points}/{character.stat.max_health}</h3>
-            <img src={sprite}/>
+        <div id='player-tile' onClick={handleClick}>
+            <h3 style={{color: "blue"}}>{character.name} - HP: {character.stat.health_points}/{character.stat.max_health}</h3>
+            <img src={sprite} className='char-bf'/>
         </div>
     )
 }
