@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2023_03_08_230722) do
 
   create_table "battles", force: :cascade do |t|
+    t.integer "user_id"
     t.integer "party_id"
     t.integer "enemy_party_id"
     t.datetime "created_at", precision: 6, null: false
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(version: 2023_03_08_230722) do
     t.integer "item_id"
     t.integer "sprite_id"
     t.boolean "targetable", default: true
+    t.integer "initiative", default: 0
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(version: 2023_03_08_230722) do
     t.integer "role_id"
     t.integer "sprite_id"
     t.boolean "targetable", default: true
+    t.integer "initiative", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -84,6 +87,15 @@ ActiveRecord::Schema.define(version: 2023_03_08_230722) do
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.string "special"
+    t.integer "level_up_threshold", default: 1000
+    t.integer "health_points"
+    t.integer "max_health"
+    t.integer "mana"
+    t.integer "max_mana"
+    t.integer "mana_regen"
+    t.integer "magic"
+    t.integer "physical"
+    t.integer "faith"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -121,15 +133,21 @@ ActiveRecord::Schema.define(version: 2023_03_08_230722) do
   end
 
   create_table "stats", force: :cascade do |t|
+    t.integer "level_up_threshold", default: 1000
     t.integer "health_points"
+    t.integer "max_health"
     t.integer "mana"
+    t.integer "max_mana"
     t.integer "mana_regen"
     t.integer "magic"
     t.integer "physical"
     t.integer "faith"
     t.integer "role_id"
+    t.string "owner_type"
+    t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["owner_type", "owner_id"], name: "index_stats_on_owner"
   end
 
   create_table "turns", force: :cascade do |t|

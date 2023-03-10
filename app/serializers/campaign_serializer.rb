@@ -1,3 +1,3 @@
 class CampaignSerializer < ActiveModel::Serializer
-  attributes :battle
+  attributes :id, :user_id, :battle
 end

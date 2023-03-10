@@ -1,55 +1,76 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'
 import { useContext, useEffect } from 'react'
-import { CharactersContext } from '../context/characters'
-import { EnemiesContext } from '../context/enemies' 
 import { CampaignContext } from '../context/campaign'
+import { UserContext } from '../context/user';
 import PlayerTile from './PlayerTile'
 import EnemyTile from './EnemyTile'
+import ActionMenu from './ActionMenu'
+import { PartyContext } from '../context/party';
 
 function Battlefield() {
 
-    const [characters, setCharacters] = useContext(CharactersContext);
-    const [enemies, setEnemies] = useContext(EnemiesContext)
-    const [campaign,_] = useContext(CampaignContext)
+    const [user, setUser] = useContext(UserContext)
+    const [campaign,_] = useContext(CampaignContext);
+    const [battle, setBattle] = useState([])
+    const [party, setParty] = useContext(PartyContext)
+    const [attacker, setAttacker] = useState(party[0])
+
+    const navigate = useNavigate()
 
     useEffect(() => {
-        fetch('/characters')
+        const config = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                user_id: user.id,
+                party_id: 1,
+                enemy_party_id: 1
+            })
+        }
+        fetch('/battles', config)
         .then(resp => resp.json())
-        .then(resp => setCharacters(resp.filter(character => character.party_id === 1)))
-        fetch('/enemies')
-        .then(resp => resp.json())
-        .then(resp => {
-            setEnemies(resp.filter(enemy => enemy.enemy_party_id === campaign))
-        })
+        .then(resp => setBattle(resp))
     },[])
 
-    const playerParty = characters?.map(character => {
+    const handleAttackerSelect = (char) => {
+        setAttacker(char)
+    }
+    const playerParty = party?.map(character => {
         return (
-            <PlayerTile key={character.id} character={character}/>
+            <PlayerTile key={character.id} character={character} setAttacker={handleAttackerSelect} attacker={attacker}/>
         )
     })
 
-    const enemyParty = enemies?.map(enemy => {
+    const enemyParty = battle.enemies?.map(enemy => {
         return(
             <EnemyTile key={enemy.id} enemy={enemy}/>
         )
     })
+
+    const handleBattleDelete = () => {
+        fetch(`/battles/${battle.id}`, {method: "DELETE"}).then(navigate('/'))
+        navigate('/')
+    }
+
     
 
     return (
         <div id='battlefield'>
-            <Link to='/'>
-                <button>Back To Hub</button>
-            </Link>
+            {/* <Link to='/'>
+            </Link> */}
             <div id='combatants'>
                 <div id='enemy-party'>
                     {enemyParty}
                 </div>
+                <ActionMenu attacker={attacker}/>
                 <div id='player-party'>
                     {playerParty}
                 </div>
             </div>
+            <button id='back-to-hub'onClick={handleBattleDelete}>Back To Hub</button>
 
         </div>
     )

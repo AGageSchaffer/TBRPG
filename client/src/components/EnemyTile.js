@@ -21,8 +21,8 @@ function EnemyTile({enemy}) {
     }
 
     return(
-        <div>
-            <h3>{enemy.name}</h3>
+        <div id='enemy-tile'>
+            <h3>{enemy.name} - HP: {enemy.stat.health_points}/{enemy.stat.max_health}</h3>
             <img src={sprite}></img>
         </div>
     )

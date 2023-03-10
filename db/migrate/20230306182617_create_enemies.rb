@@ -7,6 +7,7 @@ class CreateEnemies < ActiveRecord::Migration[6.1]
       t.integer :role_id
       t.integer :sprite_id
       t.boolean :targetable, default: true
+      t.integer :initiative, default: 0
 
       t.timestamps
     end

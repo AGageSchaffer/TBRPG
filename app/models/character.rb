@@ -1,7 +1,6 @@
 class Character < ApplicationRecord
-    belongs_to :role
-    has_many :spells, through: :role
-    has_one :stat, through: :role
+    has_one :stat, as: :owner
+    has_one :role, through: :stat
     has_one :sprite
     has_one :party
 

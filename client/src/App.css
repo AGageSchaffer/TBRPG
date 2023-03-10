@@ -990,6 +990,38 @@
 
 #combatants {
   display: flex;
+  position: relative;
+  top: 15vh;
   flex-direction: row;
   justify-content: space-evenly;
+}
+
+#action-menu {
+  display: flex;
+  position: relative;
+  border: solid;
+  top: 40vh;
+  right: 2vw;
+  border-color: black;
+  background-color: rgba(42, 63, 131, 0.836);
+  height: 250px;
+  width: 300px;
+  justify-content: center;
+}
+
+#attack {
+  position: relative;
+  top: 2vh;
+  height: 50px;
+  width: 100px;
+}
+
+#back-to-hub {
+  width: 100px;
+  height: 30px
+}
+
+.selected-character {
+  border: solid;
+  border-color: rgb(38, 38, 156);
 }

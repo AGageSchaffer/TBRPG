@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   post "/characters", to: "characters#create"
 
   delete "logout", to: "sessions#destroy"
+
+  # delete "/characters/:id", to: "characters#destroy"
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
