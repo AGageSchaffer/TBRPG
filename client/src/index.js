@@ -5,17 +5,26 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route } from "react-router-dom"
 import { UserProvider } from './context/user'
-// import { CharactersProvider } from './context/characters'
-import { CampaignProvider } from './context/campaign'
+import { CharactersProvider } from './context/characters'
+import { EnemiesProvider} from './context/enemies'
+import { CampaignProvider } from "./context/campaign";
+import { DeleteProvider } from "./context/delete";
+import { PartyProvider } from './context/party';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <UserProvider>
       <CampaignProvider>
-          <App Route={Route}/>
-        {/* <CharactersProvider>
-        </CharactersProvider> */}
+        <CharactersProvider>
+          <PartyProvider>
+            <EnemiesProvider>
+              < DeleteProvider>
+                <App Route={Route}/>
+              </DeleteProvider>
+            </EnemiesProvider>
+            </PartyProvider>
+        </CharactersProvider>
       </CampaignProvider>
     </UserProvider>
   </BrowserRouter>

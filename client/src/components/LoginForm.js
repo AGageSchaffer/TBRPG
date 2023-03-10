@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-// import {Howl, Howler} from 'howler';
+import React, { useState, useRef } from "react";
+
 function LoginForm({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
+  // const audio = useRef(new Audio(whoosh))
 //   const sound = new Howl({
 //     src: ['../audio/LoginClick.mp3'],
 // })
@@ -34,6 +34,12 @@ function LoginForm({ setUser }) {
     
   }
 
+  // function handleClick() {
+  //   // audio.current.play();
+  //   // audio.current.loop = false;
+  //   new Audio(whoosh).play()
+  // }
+
   return (
     <div id="loginform">
     <form onSubmit={handleSubmit} >
@@ -60,7 +66,7 @@ function LoginForm({ setUser }) {
         />
       </div>
       <div className="login-key-3">
-        <button variant="fill" color="primary" type="submit" >
+        <button variant="fill" color="primary" type="submit" /*onClick={handleClick()}*/>
           {isLoading ? "Loading..." : "Login"}
         </button>
       </div>

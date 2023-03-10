@@ -1,3 +1,4 @@
+//#region Sprites
 import React from 'react'
 import Sprite1 from '../images/charactersprites/Sprite1.png'
 import Sprite2 from '../images/charactersprites/Sprite2.png'
@@ -39,10 +40,11 @@ import Sprite37 from '../images/charactersprites/Sprite37.png'
 import Sprite38 from '../images/charactersprites/Sprite38.png'
 import Sprite39 from '../images/charactersprites/Sprite39.png'
 import Sprite40 from '../images/charactersprites/Sprite40.png'
+//#endregion
 
-function PlayerTile({character}) {
+function PlayerTile({character, setAttacker, attacker}) {
     let sprite;
-
+//#region Switch Statements
     switch(character.sprite_id){
         case 1:
             sprite = Sprite1;
@@ -165,11 +167,17 @@ function PlayerTile({character}) {
             sprite = Sprite40;
             break;
     }
-
-    
+//#endregion
+    let idTag;
+    if(attacker){
+        idTag = attacker.id
+    }
+    else {
+        idTag = 0
+    }
     return(
-        <div>
-            <h3>{character.name}</h3>
+        <div id={idTag === character.id ? 'selected-tile' : ''} onClick={() => setAttacker(character)}>
+            <h3>{character.name} - HP: {character.stat.health_points}/{character.stat.max_health}</h3>
             <img src={sprite}/>
         </div>
     )

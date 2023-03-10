@@ -17,6 +17,7 @@ class UsersController < ApplicationController
         user = User.create!(user_params)
         session[:user_id] = user.id
         Campaign.create!(user_id: user.id)
+        Party.create!(name: user.username, user_id: user.id)
         render json: user, status: :created
     end
 

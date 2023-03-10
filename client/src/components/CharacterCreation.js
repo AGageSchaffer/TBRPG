@@ -3,40 +3,51 @@ import { Link, useNavigate } from 'react-router-dom'
 import { UserContext } from "../context/user"
 import { CharactersContext } from "../context/characters"
 
-function CharacterCreation({ /*user, characters, setCharacters*/ }) {
+function CharacterCreation({ /*user, characters, setCharacters benchedChars, setBenchedChars*/}) {
     const [user, _] = useContext(UserContext)
     const [characters, setCharacters] = useContext(CharactersContext)
-
-    const initialFormData = {
-        name: "",
-        role_id: 1,
-        sprite_id: 1,
-        user_id: user.id,
-        level: 1,
-        experience: 0,
-        race: "Human",
-        targetable: false
-    }
-    const [formData, setFormData] = useState(initialFormData)
+    //const [benchedChars, setBenchedChars] = useContext(BenchedCharsContext)
     const [roles, setRoles] = useState([]);
-    const sprite = "char-sprite" + formData.sprite_id
     
     useEffect(() => {
         fetch('/roles')
         .then(resp => resp.json())
         .then(resp => setRoles(resp))
     }, [])
+    const initialFormData = {
+        name: "",
+        level: 1,
+        experience: 0,
+        race: "Human",
+        party_id: 0,
+        role_id: 1,
+        item_id: "",
+        sprite_id: 1,
+        targetable: true,
+        initiative: 0,
+        user_id: user.id,
+        // health_points: 0,
+        // physical: 0,
+        // magic: 0,
+        // faith: 0,
+        // mana: 0,
+        // mana_regen: 0
+    }
+    const [formData, setFormData] = useState(initialFormData)
+    const sprite = "char-sprite" + formData.sprite_id
+    
     
     const navigate = useNavigate()
     
-    const listedRoles = roles?.map(role => {
-        return (
-            <option key={role.id} value={role.id}>{role.name}</option>
-        );
-    })
-
+    // const listedRoles = roles?.map(role => {
+    //     return (
+    //         <option key={role.id} value={role.id}>{role.name}</option>
+    //     );
+    // })
+    
     const filteredRole = roles?.filter(role => role.id === parseInt(formData.role_id))
-    const roleStats = filteredRole?.map(role => role.stats.map(stat => {
+     
+    const roleStats = filteredRole?.map(role => role.stats.map(stat => { if(stat.id === role.id)
         return(
             <div key={stat.id}>
             <p>Health: {stat.health_points}</p>
@@ -63,18 +74,35 @@ function CharacterCreation({ /*user, characters, setCharacters*/ }) {
 
     function handleSubmit(e) {
         e.preventDefault()
+        // const stats = filteredRole?.map(role => role.stats.map(stat => { if(stat.id === role.id)
+        //     return {
+        //         health_points: stat.health_points,
+        //         physical: stat.physical,
+        //         magic: stat.magic,
+        //         faith: stat.faith,
+        //         mana: stat.mana,
+        //         mana_regen: stat.mana_regen
+        //     }
+        // }))
+        // const justStat = stats.includes({})
+        // // const newCharacter = {
+        // //     ...formData,
+            
+        // // }
+        // console.log(justStat)
+        //console.log(benchedChars)
+        // setBenchedChars([...benchedChars, formData])
         fetch("/characters", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify(formData),
-          })/*.then((r) => {
-            
-            if (r.ok) {
-              r.json().then((c) => setCharacters([...characters, c]))
-            }
-          })*/
+          }).then(resp => resp.json())
+        //   .then(c => setCharacters([...characters, c]))
+        .then(resp => console.log(resp))
+        //   .then(resp => resp.json())
+        //   .then(resp => setBenchedChars([...benchedChars, resp]))
         setFormData(initialFormData)
         navigate('/')
     }
@@ -99,6 +127,7 @@ function CharacterCreation({ /*user, characters, setCharacters*/ }) {
     }
 
     function handleClickRole(e) {
+        console.log(formData)
         if (e.target.name === "right" && formData.role_id < 4 && formData.role_id === 1) 
             setFormData({...formData, role_id: formData.role_id + 1, sprite_id: 11 })
         else if (e.target.name === "right" && formData.role_id < 4 && formData.role_id === 2) 
@@ -114,7 +143,7 @@ function CharacterCreation({ /*user, characters, setCharacters*/ }) {
     }
     
     
-    console.log(sprite)
+    
 
     return (
         <div id="charCreateBG">

@@ -5,30 +5,21 @@ import { useState, useEffect, useContext } from 'react'
 import { UserContext } from '../context/user';
 import { CharactersContext } from '../context/characters';
 import { CampaignContext } from '../context/campaign';
+import { DeleteContext } from '../context/delete';
+import CharacterCreation from './CharacterCreation';
+import { PartyContext } from '../context/party';
+//import { BenchedCharsContext } from '../context/benchedChars';
 
-function Hub ({/*user, setUser, characters, setCharacters*/}) {
+function Hub ({/*user, setUser, characters, setCharactersbenchedChars, setBenchedChars*/}) {
 
     // const [characters, setCharacters] = useState();
-    const [party, setParty] = useState([]);
-
-    const [_, setCharacters] = useContext(CharactersContext)
+    const [characters, setCharacters] = useContext(CharactersContext)
+    const [party, setParty] = useContext(PartyContext)
     const [user, setUser] = useContext(UserContext)
     const [campaign, setCampaign] = useContext(CampaignContext)
-
-    const [benchedChars, setBenchedChars] = useState([]);
-
-    useEffect(() => {
-        fetch('/characters')
-        .then(resp => resp.json())
-        .then((resp) => {
-            setCharacters(resp)
-            setBenchedChars(resp.filter(character => character.party_id !== 1))
-            setParty(resp.filter(character => character.party_id === 1))
-        })
-        // fetch('/campaigns')
-        // .then(resp => resp.json())
-        // .then(resp => setCampaign(resp.battle))
-    },[])
+    const [deleteChar, setDeleteChar] = useContext(DeleteContext)
+    //const [benchedChars, setBenchedChars] = useContext(BenchedCharsContext)
+    //const [benchedChars, setBenchedChars] = useState([])
     
     const logout = () => {
         fetch('/logout', {method: "DELETE"})
@@ -39,23 +30,25 @@ function Hub ({/*user, setUser, characters, setCharacters*/}) {
         setUser(null)
     }
 
-    function handleBattleClick() {
-        setCharacters(party)
+    function handleDeleteChar() {
+        setDeleteChar(!deleteChar)
     }
 
-    function removeCharacter(char) {
-        
-    }
+    // const onPartyAdd = (char) => {
+    //     //setBenchedChars(benchedChars.filter(character => character.id !== char.id))
+    //     setParty([...party, char])
+    // }
 
-    const onPartyAdd = (char) => {
-        setBenchedChars(benchedChars.filter(character => character.id !== char.id))
-        setParty([...party, char])
-    }
+    // const onPartyRemove = (char) => {
+    //     setParty(party.filter(character => character.id !== char.id))
+    //     //setBenchedChars([...benchedChars, char])
+    // }
 
-    const onPartyRemove = (char) => {
-        setParty(party.filter(character => character.id !== char.id))
-        setBenchedChars([...benchedChars, char])
-    }
+    // const onBattleClick = () => {
+    //     fetch(`/battles/${battle.id}`, {method: "DELETE"}).then(navigate('/'))
+    // }
+    const benchedChars = characters?.filter(char => char.party_id === 0)
+    //const party = characters?.filter(char => char.party_id === user.id)
 
     return (
         <div id='hub-bg'>
@@ -65,17 +58,18 @@ function Hub ({/*user, setUser, characters, setCharacters*/}) {
             <div id='hub-organizer'>
                 <div id='character-list'>
                     <h1>Characters</h1>
-                    <CharacterHolder characters={benchedChars} onPartyAdd={onPartyAdd} party={party}/>
+                    <CharacterHolder /*onPartyAdd={onPartyAdd}*/ benchedChars={benchedChars}/>
+                    <button onClick={handleDeleteChar}>Delete Characters</button>
                 </div>
                 <div id='center-hub'>
                     <h1>Bonfire</h1>
                     <Link to='/battle'>
-                        <button onClick={handleBattleClick}>Battle</button>
+                        <button >Battle</button>
                     </Link>
                 </div>
                 <div id='party-list'>
                     <h1>Party {party.length}/4</h1>
-                    <PartyHolder party={party} onPartyRemove={onPartyRemove}/>
+                    <PartyHolder /*onPartyRemove={onPartyRemove} party={party}*/characters={characters} setCharacters={setCharacters} />
                 </div>
             </div>
             </div>
